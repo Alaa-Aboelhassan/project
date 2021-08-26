@@ -38,15 +38,20 @@ for (let i = 0; i < sections.length; i++) {
 
 
 window.addEventListener("scroll", function () {
-    const lists = document.querySelectorAll("li");
-    for (i = 0; i < sections.length; i++) {
-        const data = sections[i].getAttribute("data-nav");
-        const secTop = sections[i].getBoundingClientRect().top;
-        if (secTop >= 0 && secTop <= 400) {
+    for (let i = 0; i < sections.length; i++) {
+        const sectionTop = sections[i].getBoundingClientRect().top;
+
+        if (sectionTop >= 0 && sectionTop <= 300) {
+
             sections[i].classList.add("your-active-class");
-            for (j = 0; j < lists.length; j++) {
-                if (list[j].textContent === data) {
-                    list[i].classList.add("your-active-class");
+
+            const data = sections[i].getAttribute("data-nav");
+            const lists = document.querySelectorAll('li');
+            for (let counter = 0; counter < lists.length; counter++) {
+                if (lists.textContent === data) {
+
+                    lists[counter].add("your-active-class");
+
                 } else {
                     list[i].classList.remove("your-active-class");
                 }
@@ -57,8 +62,8 @@ window.addEventListener("scroll", function () {
             sections[i].classList.remove("your-active-class");
         }
     }
-
-})
+}
+)
 
 
 
